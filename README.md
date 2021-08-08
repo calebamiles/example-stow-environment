@@ -56,8 +56,6 @@ Example package implementations ~~are~~ will be included for:
 
 ## Possibe extensions
 
-Here are a few ideas for possible extensions to this basic example.
-
 ### Packaged GNU build chain
 
 - technical computing needs "exotic" compilers 
