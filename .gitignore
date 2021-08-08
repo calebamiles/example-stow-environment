@@ -1,0 +1,10 @@
+### Cache directories
+stow_build_cache
+packer_cache
+
+### Temporary files
+*.swp
+
+### Outputs
+output_virtualbox_stow_developer_env_ubuntu
+build.log

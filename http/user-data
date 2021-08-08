@@ -1,0 +1,30 @@
+#cloud-config
+autoinstall:
+  version: 1
+  identity:
+    hostname: vagrant
+    username: vagrant
+    # Generated via: printf vagrant | mkpasswd -m sha-512 -S vagrant. -s
+    password: "$6$vagrant.$sd6r0/OKL.FIGZbhanVkrLassSxoPRv1h5lkISsmBONqaLUGVXkEcD22Ddak5W8JSxeU0VFkU/We1Y7o4hVO/1"
+
+  early-commands:
+  - systemctl stop ssh # otherwise packer tries to connect and exceed max attempts
+
+  ssh:
+    install-server: true
+
+  storage:
+    layout:
+      name: direct
+
+  packages:
+  - build-essential
+  - linux-headers-generic
+  - dh-autoreconf
+  - texinfo
+  - texlive
+
+  late-commands:
+  - echo 'vagrant ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/vagrant # enable passwordless sudo so life is not the worst
+  - chmod 440 /target/etc/sudoers.d/vagrant
+ 
