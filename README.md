@@ -28,7 +28,7 @@ Some possible reasons to an approach like this include:
 
 ## Example packages
 
-Example package implementations are included for:
+Example package implementations ~~are~~ will be included for:
 
 - [go][]
 - [cfssl][]
