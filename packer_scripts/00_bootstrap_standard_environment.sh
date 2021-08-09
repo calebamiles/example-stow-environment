@@ -90,32 +90,6 @@ standard_environment::export_build_variables() {
     exit 1
   fi
 
-  ### Check that required programs exist
-  if [[ ! $(command -v cat) ]]; then
-    echo "cat was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v ldd) ]]; then
-    echo "ldd was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v awk) ]]; then
-    echo "awk was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v uname) ]]; then
-    echo "uname was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v sha256sum) ]]; then
-    echo "sha256sum was not found on PATH...exiting"
-    exit 1
-  fi
-
   ### Export build variables
   export STOW_BUILD_CTX_RUN_DIR="/usr/local"
   export STOW_BUILD_CTX_CACHE_DIR="/opt/standard_environment/cache"
@@ -159,33 +133,6 @@ standard_environment::create_build_context() {
     exit 1
   fi
 
-  ### Check that required programs exist
-  if [[ ! $(command -v sudo) ]]; then
-    echo "sudo was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v mkdir) ]]; then
-    echo "mkdir was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v mktemp) ]]; then
-    echo "mktemp was not found on PATH...exiting"
-    exit 1
-  fi
-
-
-  if [[ ! $(command -v chown) ]]; then
-    echo "chown was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v whoami) ]]; then
-    echo "whoami was not found on PATH...exiting"
-    exit 1
-  fi
-
   ### Ensure build environment variables are set
   standard_environment::export_build_variables ${package_name}
 
@@ -210,37 +157,6 @@ standard_environment::check_cached_source() {
   ### Ensure that package_name is populated
   if [[ -z ${package_name} ]]; then
     echo "package_name is a required argument"
-    exit 1
-  fi
-
-  ### Check that required programs exist
-  if [[ ! $(command -v sudo) ]]; then
-    echo "sudo was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v mktemp) ]]; then
-    echo "mktemp was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v chown) ]]; then
-    echo "chown was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v whoami) ]]; then
-    echo "whoami was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v tar) ]]; then
-    echo "tar was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v mv) ]]; then
-    echo "mv was not found on PATH...exiting"
     exit 1
   fi
 
@@ -282,37 +198,6 @@ standard_environment::check_cached_build() {
     exit 1
   fi
 
-  ### Check that required programs exist
-  if [[ ! $(command -v sudo) ]]; then
-    echo "sudo was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v mktemp) ]]; then
-    echo "mktemp was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v chown) ]]; then
-    echo "chown was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v whoami) ]]; then
-    echo "whoami was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v tar) ]]; then
-    echo "tar was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v mv) ]]; then
-    echo "mv was not found on PATH...exiting"
-    exit 1
-  fi
-
   ### Ensure build environment variables are set
   standard_environment::export_build_variables ${package_name}
 
@@ -345,22 +230,6 @@ standard_environment::cache_source() {
     exit 1
   fi
 
-  ### Check that required programs exist
-  if [[ ! $(command -v sudo) ]]; then
-    echo "sudo was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v mv) ]]; then
-    echo "mv was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v tar) ]]; then
-    echo "tar was not found on PATH...exiting"
-    exit 1
-  fi
-
   ### Ensure build environment variables are set
   standard_environment::export_build_variables ${package_name}
 
@@ -382,22 +251,6 @@ standard_environment::cache_build() {
     exit 1
   fi
 
-  ### Check that required programs exist
-  if [[ ! $(command -v sudo) ]]; then
-    echo "sudo was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v mv) ]]; then
-    echo "mv was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v tar) ]]; then
-    echo "tar was not found on PATH...exiting"
-    exit 1
-  fi
-
   ### Ensure build environment variables are set
   standard_environment::export_build_variables ${package_name}
 
@@ -416,27 +269,6 @@ standard_environment::register_package() {
   ### Ensure that package_name is populated
   if [[ -z ${package_name} ]]; then
     echo "package_name is a required argument"
-    exit 1
-  fi
-
-  ### Check that required packages exist
-  if [[ ! $(command -v cp) ]]; then
-    echo "cp was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v cat) ]]; then
-    echo "cat was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v sort) ]]; then
-    echo "sort was not found on PATH...exiting"
-    exit 1
-  fi
-
-  if [[ ! $(command -v uniq) ]]; then
-    echo "uniq was not found on PATH...exiting"
     exit 1
   fi
 
@@ -480,32 +312,6 @@ case ${op} in
     ;;
 
   install_packages)
-    ### Check that required programs exist
-    if [[ ! $(command -v sudo) ]]; then
-      echo "sudo was not found on PATH...exiting"
-      exit 1
-    fi
-
-    if [[ ! $(command -v stow) ]]; then
-      echo "stow was not found on PATH...exiting"
-      exit 1
-    fi
-
-    if [[ ! $(command -v chkstow) ]]; then
-      echo "chkstow was not found on PATH...exiting"
-      exit 1
-    fi
-
-    if [[ ! $(command -v goss) ]]; then
-      echo "goss was not found on PATH...exiting"
-      exit 1
-    fi
-
-    if [[ ! $(command -v mktemp) ]]; then
-      echo "mktemp was not found on PATH...exiting"
-      exit 1
-    fi
-
     ### Create array to hold the list packages
     declare -a STANDARD_STOW_PACKAGES
 
@@ -530,22 +336,6 @@ case ${op} in
     ;;
 
   uninstall_packages)
-    ### Check that required programs exist
-    if [[ ! $(command -v sudo) ]]; then
-      echo "sudo was not found on PATH...exiting"
-      exit 1
-    fi
-
-    if [[ ! $(command -v stow) ]]; then
-      echo "stow was not found on PATH...exiting"
-      exit 1
-    fi
-
-    if [[ ! $(command -v chkstow) ]]; then
-      echo "chkstow was not found on PATH...exiting"
-      exit 1
-    fi
-
     ### Create array to hold the list packages
     declare -a STANDARD_STOW_PACKAGES
 
@@ -589,17 +379,6 @@ case ${op} in
     ### Save the list of packages to drop
     pkgs=${2}
 
-    ### Check that required programs exist
-    if [[ ! $(command -v sudo) ]]; then
-      echo "sudo was not found on PATH...exiting"
-      exit 1
-    fi
-
-    if [[ ! $(command -v stow) ]]; then
-      echo "stow was not found on PATH...exiting"
-      exit 1
-    fi
-    
     ### Drop specified packages
     for pkg in "${pkgs[@]}"; do
       sudo stow --dir /opt/standard_environment/store --target /usr/local --delete ${pkg}

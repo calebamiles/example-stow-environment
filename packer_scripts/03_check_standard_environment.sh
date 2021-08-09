@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 set -eux -o pipefail
 
-### Declare package dependencies
-deps=("goss_0.3.16")
-
 ### Load the standard environment
-source /opt/standard_environment/entrypoint.sh with_packages ${deps}
+source /opt/standard_environment/entrypoint.sh
 
 ### Set the "package" name
 package_name="standard_environment_tests"
