@@ -19,8 +19,9 @@ autoinstall:
 
   packages:
   - build-essential
-  - linux-headers-generic
   - dh-autoreconf
+  - linux-headers-generic
+  - libssl-dev
   - texinfo
   - texlive
 
