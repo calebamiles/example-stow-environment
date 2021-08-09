@@ -514,7 +514,7 @@ case ${op} in
 
     ### Restow the packages
     for pkg in "${STANDARD_STOW_PACKAGES[@]}"; do
-      sudo stow --dir ${package_dir} --target /usr/local --restow ${pkg}
+      sudo stow --dir /opt/standard_environment/store --target /usr/local --restow ${pkg}
     done
 
     ### Check stow
@@ -525,7 +525,7 @@ case ${op} in
     trap "{ rm -r ${test_dir}; }" EXIT
 
     ### Render gossfile and run tests
-    goss -g /opt/standard_environment/contracts.d/gossfile.yaml render > "${test_dir}/goss.yaml"
+    goss -g /opt/standard_environment/contracts.d/goss.yaml render > "${test_dir}/goss.yaml"
     goss -g "${test_dir}/goss.yaml" validate -f silent
     ;;
 
