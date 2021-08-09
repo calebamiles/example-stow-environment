@@ -55,7 +55,7 @@ elif [[ ${STOW_BUILD_CTX_CACHED_SOURCE_EXISTS} == true ]]; then
   ### Register goss
   standard_environment::register_package ${package_name}
 
-  ### Cache build output
+  ### Cache build output and source
   standard_environment::cache_build ${package_name}
 
   exit 0
@@ -76,8 +76,9 @@ popd
 ### Register goss
 standard_environment::register_package ${package_name}
 
-### Cache build output
+### Cache build output and source
 standard_environment::cache_build ${package_name}
+standard_environment::cache_source ${package_name}
 
 exit 0
 
