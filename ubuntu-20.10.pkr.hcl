@@ -37,6 +37,7 @@ build {
       "packer_scripts/01_reserve_disk_space.sh",
       "packer_scripts/01_install_stow.sh",
       "packer_scripts/01_install_cmake.sh",
+      "packer_scripts/01_install_postgresql.sh",
       "packer_scripts/01_install_virtualbox_guest_additions.sh",
       "packer_scripts/01_install_golang.sh",
       "packer_scripts/02_install_goss.sh",

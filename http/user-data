@@ -18,12 +18,19 @@ autoinstall:
       name: direct
 
   packages:
+  - bison
   - build-essential
   - dh-autoreconf
+  - flex
   - linux-headers-generic
+  - libreadline8
+  - libreadline-dev
   - libssl-dev
+  - libsystemd-dev
   - texinfo
   - texlive
+  - zlib1g
+  - zlib1g-dev
 
   late-commands:
   - echo 'vagrant ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/vagrant # enable passwordless sudo so life is not the worst
